@@ -6,6 +6,7 @@ public class Collectible : MonoBehaviour
 {
     public string collectibleType;
     public Player player;
+    public Sprite image;
 
     void Start()
     {
@@ -16,8 +17,8 @@ public class Collectible : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(collectibleType == "Key")
-                player.hasKey = true;
+            if (collectibleType == "Key")
+                player.CollectItem(image);
             gameObject.SetActive(false);
         }
     }
