@@ -44,8 +44,8 @@ public class WalkingState : PlayerState
         if (!hit1 && !hit2)
         {
             grounded = false;
-            if(!initialGrounded || !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
-                moveSpeed = 2f;
+            if (!initialGrounded || !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)) ;
+                //moveSpeed = 2f;
         }
         else
         {
