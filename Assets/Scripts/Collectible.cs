@@ -19,7 +19,7 @@ public class Collectible : MonoBehaviour
         {
             if (collectibleType == "Key")
                 player.CollectItem(image);
-            else if (collectibleType == "secret")
+            else if (collectibleType == "Secret")
                 player.CollectItem(image);
             gameObject.SetActive(false);
         }
