@@ -30,7 +30,7 @@ public class CrawlingState : PlayerState
         if (Input.GetKeyUp(KeyCode.S))
             return new WalkingState();
         if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && grounded)
-            return new StandingState();
+            return new DuckingState();
         if (Input.GetKeyDown(KeyCode.Space))
             return new JumpingState();
         return null;
