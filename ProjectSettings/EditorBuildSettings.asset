@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PrototypePlatformer.unity
     guid: a9c56f05032c19d4cbd851731611dcec
   - enabled: 1
+    path: Assets/Scenes/PrototypeMix.unity
+    guid: 277b872ea0796484e9dcbf752794d352
+  - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: cfd04ab27217f9444a0389eed97db622
   m_configObjects: {}

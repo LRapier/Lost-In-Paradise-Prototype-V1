@@ -15,7 +15,6 @@ public class Door : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        Debug.Log("Triggered");
         if (player.hasKey)
         {
             winScreen.SetActive(true);

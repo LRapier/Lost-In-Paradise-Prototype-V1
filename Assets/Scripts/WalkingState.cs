@@ -8,7 +8,6 @@ public class WalkingState : PlayerState
 
     public override void Enter(Player player)
     {
-        Debug.Log("Walking");
         Rigidbody2D rig = player.GetComponent<Rigidbody2D>();
         player.transform.localScale = new Vector3(1f, 1f, 1f);
         if (player.transform.localScale.y == 0.5f)

@@ -32,21 +32,21 @@ public class Player : MonoBehaviour
     {
         SpriteRenderer image = pickup.GetComponent<SpriteRenderer>();
         Collectible collectible = pickup.GetComponent<Collectible>();
-        Debug.Log(image.sprite.name);
         for (int x = 0; x < 3; x++)
         {
-            Debug.Log(inventorySprites[x].sprite);
             if (inventorySprites[x].sprite == null)
             {
                 inventorySprites[x].color = Color.white;
                 if (collectible.collectibleType == "Key")
+                {
                     hasKey = true;
+                }
                 inventorySprites[x].sprite = image.sprite;
                 pickupMessage.text = "Picked up " + collectible.collectibleType;
-                Invoke("ClearMessage", 1f);
                 break;
             }
         }
+        Invoke("ClearMessage", 1f);
     }
 
     public void ClearMessage()

@@ -10,7 +10,6 @@ public class CrawlingState : PlayerState
 
     public override void Enter(Player player)
     {
-        Debug.Log("Crawling");
         Rigidbody2D rig = player.GetComponent<Rigidbody2D>();
         Move(rig);
         Transform tr = player.GetComponent<Transform>();

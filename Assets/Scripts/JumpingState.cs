@@ -9,13 +9,10 @@ public class JumpingState : PlayerState
 
     public override void Enter(Player player)
     {
-        Debug.Log("Jumping");
         RaycastHit2D hit1 = Physics2D.Raycast(player.transform.position - new Vector3(.5f, .51f, 0f), player.transform.TransformDirection(Vector2.down), 0.05f);
         RaycastHit2D hit2 = Physics2D.Raycast(player.transform.position - new Vector3(-.5f, .51f, 0f), player.transform.TransformDirection(Vector2.down), 0.05f);
-        //Debug.Log("hit = " + hit.collider.name);
         if (hit1 || hit2)
         {
-            Debug.Log("Start on ground");
             grounded = false;
             jumpStart = Time.time;
             Rigidbody2D rig = player.GetComponent<Rigidbody2D>();
@@ -23,7 +20,6 @@ public class JumpingState : PlayerState
         }
         else
         {
-            Debug.Log("Start in air");
             grounded = false;
         }
     }

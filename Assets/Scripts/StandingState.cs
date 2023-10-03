@@ -3,7 +3,6 @@ public class StandingState : PlayerState
 {
     public override void Enter(Player player)
     {
-        Debug.Log("Standing");
         float x = Input.GetAxis("Horizontal");
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(x * 1.5f, 0f);
         if(player.transform.localScale.y == 0.5f)

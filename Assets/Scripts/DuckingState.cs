@@ -4,7 +4,6 @@ public class DuckingState : PlayerState
 {
     public override void Enter(Player player)
     {
-        Debug.Log("Ducking");
         Transform tr = player.GetComponent<Transform>();
         tr.localScale = new Vector3(1f, 0.5f, 1f);
         tr.position = new Vector3(tr.position.x, tr.position.y - .2575f, tr.position.z);

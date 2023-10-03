@@ -9,6 +9,7 @@ public class SecretChecker : MonoBehaviour
     public Player player;
     bool confirmSecret = false;
     public SecretMenu secretMenu;
+    public Sprite secretSprite;
 
     public void Awake()
     {
@@ -29,16 +30,25 @@ public class SecretChecker : MonoBehaviour
 
     public void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 2 && SceneManager.GetActiveScene().buildIndex != 3)
+        if (SceneManager.GetActiveScene().buildIndex <= 1)
         {
             Destroy(this.gameObject);
         }
-        else if(SceneManager.GetActiveScene().buildIndex == 3)
+        else if(SceneManager.GetActiveScene().buildIndex == 4)
         {
             if(confirmSecret)
             {
                 secretMenu = FindAnyObjectByType<SecretMenu>();
                 secretMenu.image.color = Color.white;
+            }
+        }
+        else if (player == null)
+        {
+            player = FindAnyObjectByType<Player>();
+            if(confirmSecret)
+            {
+                player.inventorySprites[0].color = Color.white;
+                player.inventorySprites[0].sprite = secretSprite;
             }
         }
     }
