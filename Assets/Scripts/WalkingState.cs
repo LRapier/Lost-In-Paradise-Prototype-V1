@@ -4,7 +4,7 @@ public class WalkingState : PlayerState
 {
     float moveSpeed = 5f;
     bool grounded = true;
-    bool initialGrounded = true;
+    //bool initialGrounded = true;
 
     public override void Enter(Player player)
     {
@@ -20,7 +20,7 @@ public class WalkingState : PlayerState
         if (!hit1 && !hit2)
         {
             grounded = false;
-            initialGrounded = false;
+            //initialGrounded = false;
         }
     }
     public override PlayerState HandleInput(Player player)
@@ -44,8 +44,6 @@ public class WalkingState : PlayerState
         if (!hit1 && !hit2)
         {
             grounded = false;
-            if (!initialGrounded || !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)) ;
-                //moveSpeed = 2f;
         }
         else
         {

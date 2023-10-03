@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         Debug.Log(image.sprite.name);
         for (int x = 0; x < 3; x++)
         {
+            Debug.Log(inventorySprites[x].sprite);
             if (inventorySprites[x].sprite == null)
             {
                 inventorySprites[x].color = Color.white;
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
                 inventorySprites[x].sprite = image.sprite;
                 pickupMessage.text = "Picked up " + collectible.collectibleType;
                 Invoke("ClearMessage", 1f);
+                break;
             }
         }
     }

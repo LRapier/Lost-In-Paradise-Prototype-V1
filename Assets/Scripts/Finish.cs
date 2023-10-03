@@ -6,16 +6,17 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     public GameObject winScreen;
-    GameObject player;
-
-    void Start()
-    {
-        player = GameObject.Find("Player");
-    }
+    public SecretChecker secretChecker;
 
     void OnTriggerEnter2D()
     {
         winScreen.SetActive(true);
-        player.SetActive(false);
+        secretChecker.CheckSecret();
+        Invoke("NextScene", 2f);
+    }
+
+    void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
