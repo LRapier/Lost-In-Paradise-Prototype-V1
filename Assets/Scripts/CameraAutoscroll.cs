@@ -9,9 +9,13 @@ public class CameraAutoscroll : MonoBehaviour
     public Vector3 lossPosition;
     public GameObject deathMessage;
 
+    void FixedUpdate()
+    {
+        transform.position = new Vector3(transform.position.x + 0.05f, transform.position.y, transform.position.z);
+    }
+
     void LateUpdate()
     {
-        transform.position = new Vector3(transform.position.x + 0.002f, transform.position.y, transform.position.z);
         if(transform.position.x >= lossPosition.x)
         {
             deathMessage.SetActive(true);
