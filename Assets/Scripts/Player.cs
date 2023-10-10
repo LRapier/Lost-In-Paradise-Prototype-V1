@@ -8,12 +8,12 @@ public class Player : MonoBehaviour
 {
     private PlayerState standState = new StandingState();
     public bool hasKey = false;
-    public Image[] inventorySprites;
-    public TextMeshProUGUI pickupMessage;
 
     private void Start()
     {
         standState.Enter(this);
+        Inventory inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+        inventory.Backup();
     }
 
     private void Update()
@@ -26,31 +26,5 @@ public class Player : MonoBehaviour
             standState.Enter(this);
         }
         standState.Update(this);
-    }
-
-    public void CollectItem(GameObject pickup)
-    {
-        SpriteRenderer image = pickup.GetComponent<SpriteRenderer>();
-        Collectible collectible = pickup.GetComponent<Collectible>();
-        for (int x = 0; x < 3; x++)
-        {
-            if (inventorySprites[x].sprite == null)
-            {
-                inventorySprites[x].color = Color.white;
-                if (collectible.collectibleType == "Key")
-                {
-                    hasKey = true;
-                }
-                inventorySprites[x].sprite = image.sprite;
-                pickupMessage.text = "Picked up " + collectible.collectibleType;
-                break;
-            }
-        }
-        Invoke("ClearMessage", 1f);
-    }
-
-    public void ClearMessage()
-    {
-        pickupMessage.text = "";
     }
 }

@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 public class Finish : MonoBehaviour
 {
     public GameObject winScreen;
-    public SecretChecker secretChecker;
 
     void OnTriggerEnter2D()
     {
         winScreen.SetActive(true);
-        secretChecker.CheckSecret();
         Invoke("NextScene", 2f);
     }
 

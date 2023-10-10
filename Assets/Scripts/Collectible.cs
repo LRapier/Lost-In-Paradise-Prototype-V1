@@ -5,12 +5,12 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     public string collectibleType;
-    public Player player;
+    public Inventory inventory;
     public GameObject image;
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>(); 
+        inventory = GameObject.Find("Inventory").GetComponent<Inventory>(); 
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -18,9 +18,9 @@ public class Collectible : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             if (collectibleType == "Key")
-                player.CollectItem(image);
+                inventory.CollectItem(image);
             else if (collectibleType == "Secret")
-                player.CollectItem(image);
+                inventory.CollectItem(image);
             gameObject.SetActive(false);
         }
     }
